@@ -1,5 +1,5 @@
-combinationNo = new Vue({
-    el: '#combinationNo',
+permutationsNo = new Vue({
+    el: '#permutationsNo',
     data: {
         incomingData_N: '',
         incomingData_K: '',
@@ -14,7 +14,7 @@ combinationNo = new Vue({
             if (n >= 0 && k >= 0) {
                 if ((n - Math.floor(n)) == 0 && (k - Math.floor(k)) == 0) {
                     if ((n - k) >= 0) {
-                        let res = calc_combinationNo(n, k);
+                        let res = calc_permutationsNo(n, k);
                         this.result = res;
                     } else {
                         this.result = "n должен быть больше или равен k"

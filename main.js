@@ -7,7 +7,7 @@ let win;                                                //!инициализа�
 function createWindow(){                                //!создание окна
     win = new BrowserWindow({
         width: 1920,
-        height: 1080,
+        height: 1138,
         icon: __dirname + "/img/icon.png",
         resizable: false
     });

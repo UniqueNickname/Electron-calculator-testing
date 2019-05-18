@@ -61,3 +61,24 @@ body {
     font-weight: 700;
     color: rgb(238, 82, 82);
   }
+
+  .card-body{
+    position: relative;
+  }
+   .btn{
+     position: absolute;
+     bottom: 0;
+     left: 0;
+   }
+
+   .card-body ul{
+     padding-bottom: 10px;
+   }
+
+   .button{
+    background-color: rgb(139, 212, 121);
+    border-radius: 4px;
+    border: none;
+    width: 100px;
+    height: 30px;
+   }

@@ -10,18 +10,7 @@ permutations = new Vue({
         Calculator: function() {
             const n = this.incomingData_N;
             const k = this.incomingData_K;
-
-            if (n >= 0 && k >= 0) {
-                if ((n - Math.floor(n)) == 0 &&
-                        (k - Math.floor(k)) == 0) {
-                    let res = calc_permutations(n, k);
-                    this.result = res;
-                } else {
-                    this.result = "введите целые числа"
-                }
-            } else {
-                this.result = "введите чесла больше 0"
-            }
+            this.result = calc_permutations(n, k);
         }
     },
 })

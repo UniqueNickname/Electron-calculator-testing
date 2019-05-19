@@ -28,7 +28,7 @@ function calc_combinationNo (n, k) {
         let fact_sub   = factorial(n - k);
         let fact_k     = factorial(k);
         let den        = fact_sub * fact_k;
-        return fact_n / den;
+        return Math.floor(fact_n / den);
     }
 }
 module.exports = calc_combinationNo;

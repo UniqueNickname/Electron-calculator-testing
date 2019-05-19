@@ -1,8 +1,6 @@
 const factorial = require('../Logic/factorial');
 
 function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
-    ////console.log("И оно запустилось");
-    
     let ready = true;
     let ns    = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10];
 
@@ -33,11 +31,8 @@ function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
         for(let i = 0; i < ns.length; i++) {
             sum += ns[i];
         }
-        ////const sum   = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10;
-        ////console.log("sum   = " + sum);
 
         const f_sum = factorial(sum);
-        ////console.log("f_sum = " + f_sum);
 
         const f_n1  = factorial(n1);
         const f_n2  = factorial(n2);
@@ -51,7 +46,6 @@ function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
         const f_n10 = factorial(n10);
     
         const mult = f_n1 * f_n2 * f_n3 * f_n4 * f_n5 * f_n6 * f_n7 * f_n8 * f_n9 * f_n10;
-        ////console.log("mult   = " + mult);
     
         return f_sum / mult;
     }

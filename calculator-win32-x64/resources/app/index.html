@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--! Перезагрузка страницы 
+    <!--! <meta http-equiv="Refresh" content="5" /> -->
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!--*----------------------------
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+        </div>
+    </nav>
+    ----------------------------------------------->
+    <!--!--Боковое меню с ПЕРЕСТАНОВКАМИ---------->
+    <div class="sidebar p-4" id="placementNo">
+        <a href="#close" class="close-btn">&times;</a>
+        <h4>Перестановки</h4>
+        <p>
+            Пусть имеется n различных объектов.
+            Будем переставлять их всеми возможными способами (число и состав объектов остается неизменными, меняется
+            только их порядок).
+            <br><br>
+            Получившиеся комбинации называются перестановками, а их число расчитывается по формуле:
+            <!--!--Огромный span с формулой-->
+            <div>
+                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-4"
+                        style="width: 17.331em; display: inline-block;"><span
+                            style="display: inline-block; position: relative; width: 13.76em; height: 0px; font-size: 126%;"><span
+                                style="position: absolute; clip: rect(1.326em, 1013.76em, 2.715em, -999.997em); top: -2.245em; left: 0em;"><span
+                                    class="mrow" id="MathJax-Span-5"><span class="msubsup" id="MathJax-Span-6"><span
+                                            style="display: inline-block; position: relative; width: 1.128em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.112em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-7"
+                                                    style="font-family: MathJax_Math-italic;">P<span
+                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.136em;"></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; top: -3.833em; left: 0.665em;"><span
+                                                    class="mi" id="MathJax-Span-8"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-9"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                        class="mi" id="MathJax-Span-10"
+                                        style="font-family: MathJax_Math-italic; padding-left: 0.268em;">n</span><span
+                                        class="mo" id="MathJax-Span-11" style="font-family: MathJax_Main;">!</span><span
+                                        class="mo" id="MathJax-Span-12"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                        class="mn" id="MathJax-Span-13"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">1</span><span
+                                        class="mo" id="MathJax-Span-14"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                        class="mn" id="MathJax-Span-15"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">2</span><span
+                                        class="mo" id="MathJax-Span-16"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                        class="mn" id="MathJax-Span-17"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">3</span><span
+                                        class="mo" id="MathJax-Span-18" style="font-family: MathJax_Main;">⋅</span><span
+                                        class="mo" id="MathJax-Span-19" style="font-family: MathJax_Main;">.</span><span
+                                        class="mo" id="MathJax-Span-20"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                        class="mo" id="MathJax-Span-21"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                        class="mo" id="MathJax-Span-22"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                        class="mo" id="MathJax-Span-23" style="font-family: MathJax_Main;">(</span><span
+                                        class="mi" id="MathJax-Span-24"
+                                        style="font-family: MathJax_Math-italic;">n</span><span class="mo"
+                                        id="MathJax-Span-25"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                        class="mn" id="MathJax-Span-26"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">1</span><span
+                                        class="mo" id="MathJax-Span-27" style="font-family: MathJax_Main;">)</span><span
+                                        class="mo" id="MathJax-Span-28"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                        class="mi" id="MathJax-Span-29"
+                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">n</span></span><span
+                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                            style="display: inline-block; overflow: hidden; vertical-align: -0.413em; border-left: 0px solid; width: 0px; height: 1.421em; --darkreader-inline-border-left: initial;"
+                            data-darkreader-inline-border-left=""></span></span></nobr>
+            </div>
+        </p>
+
+        <input class="form" type="text" v-model="incomingData" placeholder="Введите n">
+
+        <button class="button" @click="Calculator">Вычислить</button>
+        <p class="mt-2">Результат: <span class="result">{{ result }}</span></p>
+    </div>
+
+    <div class="sidebar p-4" id="combinationNo">
+        <a href="#close" class="close-btn">&times;</a>
+        <h4>Сочетания</h4>
+        <p>
+            Пусть имеется n различных объектов. Чтобы найти число сочетаний из n объектов по k, будем выбирать
+            комбинации из m объектов все возможными способами, при этом будем обращать внимание на разный состав
+            комбинаций, но не порядок (он тут не важен, в отличие от размещений).
+            <br><br>
+            Например, есть три объекта {1,2,3}, составляем сочетания по 2 объекта в каждом. Тогда выборки {1,2} и {2,1}
+            - это одно и то же сочетание (так как комбинации отличаются лишь порядком). А всего различных сочетаний из 3
+            объектов по 2 будет три: {1,2}, {1,3}, {2,3}.
+            <br><br>
+            Общая формула, которая позволяет найти число сочетаний из n объектов по k имеет вид:
+            <!--!--Огромный span с формулой-->
+            <div class="MathJax_Display" style="text-align: center;">
+                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-19"
+                        style="width: 10.188em; display: inline-block;"><span
+                            style="display: inline-block; position: relative; width: 8.072em; height: 0px; font-size: 126%;"><span
+                                style="position: absolute; clip: rect(0.665em, 1008.01em, 3.442em, -999.997em); top: -2.245em; left: 0em;"><span
+                                    class="mrow" id="MathJax-Span-20"><span class="msubsup" id="MathJax-Span-21"><span
+                                            style="display: inline-block; position: relative; width: 1.26em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-22"
+                                                    style="font-family: MathJax_Math-italic;">C<span
+                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.069em;"></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.296em; left: 0.797em;"><span
+                                                    class="mi" id="MathJax-Span-23"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.833em; left: 0.731em;"><span
+                                                    class="mi" id="MathJax-Span-24"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-25"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                        class="mfrac" id="MathJax-Span-26" style="padding-left: 0.268em;"><span
+                                            style="display: inline-block; position: relative; width: 4.964em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1000.8em, 4.17em, -999.997em); top: -4.626em; left: 50%; margin-left: -0.46em;"><span
+                                                    class="mrow" id="MathJax-Span-27"><span class="mi"
+                                                        id="MathJax-Span-28"
+                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                        class="mo" id="MathJax-Span-29"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.046em, 1004.76em, 4.435em, -999.997em); top: -3.237em; left: 50%; margin-left: -2.444em;"><span
+                                                    class="mrow" id="MathJax-Span-30"><span class="mo"
+                                                        id="MathJax-Span-31"
+                                                        style="font-family: MathJax_Main;">(</span><span class="mi"
+                                                        id="MathJax-Span-32"
+                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                        class="mo" id="MathJax-Span-33"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                        class="mi" id="MathJax-Span-34"
+                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                        class="mo" id="MathJax-Span-35"
+                                                        style="font-family: MathJax_Main;">)</span><span class="mo"
+                                                        id="MathJax-Span-36"
+                                                        style="font-family: MathJax_Main;">!</span><span class="mo"
+                                                        id="MathJax-Span-37"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                        class="mi" id="MathJax-Span-38"
+                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                        class="mo" id="MathJax-Span-39"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(0.797em, 1004.96em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 4.964em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                    data-darkreader-inline-border-top=""></span><span
+                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span></span><span
+                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                            style="display: inline-block; overflow: hidden; vertical-align: -1.329em; border-left: 0px solid; width: 0px; height: 3.171em; --darkreader-inline-border-left: initial;"
+                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    </math></span>
+            </div>
+        </p>
+
+        <input class="form" type="text" v-model="incomingData_N" placeholder="Введите n">
+        <input class="form" type="text" v-model="incomingData_K" placeholder="Введите k">
+
+        <button class="button mt-2" @click="Calculator">Вычислить</button>
+        <p class="mt-2">Результат: <span class="result">{{ result }}</span></p>
+    </div>
+
+    <div class="sidebar p-4" id="permutationsNo">
+        <a href="#close" class="close-btn">&times;</a>
+        <h4>Размещения</h4>
+        <p>
+            Пусть имеется n различных объектов. Будем выбирать из них k объектов и переставлять всеми возможными
+            способами между собой (то есть меняется и состав выбранных объектов, и их порядок).
+            <br><br>
+            Получившиеся комбинации называются размещениями из n объектов по k, а их число расчитывается по формуле:
+
+            <!--!--Огромный span с формулой-->
+            <div class="MathJax_Display" style="text-align: center;">
+                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-13"
+                        style="width: 23.614em; display: inline-block;"><span
+                            style="display: inline-block; position: relative; width: 18.72em; height: 0px; font-size: 126%;"><span
+                                style="position: absolute; clip: rect(0.665em, 1018.65em, 3.442em, -999.997em); top: -2.245em; left: 0em;"><span
+                                    class="mrow" id="MathJax-Span-14"><span class="msubsup" id="MathJax-Span-15"><span
+                                            style="display: inline-block; position: relative; width: 1.26em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-16"
+                                                    style="font-family: MathJax_Math-italic;">A</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.296em; left: 0.731em;"><span
+                                                    class="mi" id="MathJax-Span-17"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.833em; left: 0.731em;"><span
+                                                    class="mi" id="MathJax-Span-18"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mfrac" id="MathJax-Span-20" style="padding-left: 0.268em;">
+                                        <span
+                                            style="display: inline-block; position: relative; width: 3.509em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1000.8em, 4.17em, -999.997em); top: -4.626em; left: 50%; margin-left: -0.46em;"><span
+                                                    class="mrow" id="MathJax-Span-21">
+                                                    <span class="mi" id="MathJax-Span-22"
+                                                        style="font-family: MathJax_Math-italic;">n</span>
+                                                    <span class="mo" id="MathJax-Span-23"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.046em, 1003.31em, 4.435em, -999.997em); top: -3.237em; left: 50%; margin-left: -1.65em;"><span
+                                                    class="mrow" id="MathJax-Span-24"><span class="mo"
+                                                        id="MathJax-Span-25"
+                                                        style="font-family: MathJax_Main;">(</span><span class="mi"
+                                                        id="MathJax-Span-26"
+                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                        class="mo" id="MathJax-Span-27"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                        class="mi" id="MathJax-Span-28"
+                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                        class="mo" id="MathJax-Span-29"
+                                                        style="font-family: MathJax_Main;">)</span><span class="mo"
+                                                        id="MathJax-Span-30"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(0.797em, 1003.51em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 3.509em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                    data-darkreader-inline-border-top=""></span><span
+                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span>
+                                </span><span
+                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                            style="display: inline-block; overflow: hidden; vertical-align: -1.329em; border-left: 0px solid; width: 0px; height: 3.171em; --darkreader-inline-border-left: initial;"
+                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    </math></span>
+            </div>
+        </p>
+
+        <input class="form" type="text" v-model="incomingData_N" placeholder="Введите n">
+        <input class="form" type="text" v-model="incomingData_K" placeholder="Введите k">
+
+        <button class="button mt-2" @click="Calculator">Вычислить</button>
+        <p class="mt-2">Результат: <span class="result">{{ result }}</span></p>
+    </div>
+
+    <div class="sidebar p-4" id="placement">
+        <a href="#close" class="close-btn">&times;</a>
+        <h4>Перестановки с повторениями</h4>
+        <p>
+                Будем переставлять n объектов всеми возможными способами (их будет n!). Но так как некоторые объекты совпадают, итоговое число будет меньше. В частности, n1 объектов первого типа можно переставлять между собой n1! способами, но они не меняют итоговую перестановку. Аналогично для всех остальных объектов, поэтому число перестановок с повторениями есть:
+            <div class="MathJax_Display" style="text-align: center;">
+                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-83"
+                        style="width: 20.837em; display: inline-block;"><span
+                            style="display: inline-block; position: relative; width: 16.538em; height: 0px; font-size: 126%;"><span
+                                style="position: absolute; clip: rect(0.665em, 1016.47em, 3.31em, -999.997em); top: -2.245em; left: 0em;"><span
+                                    class="mrow" id="MathJax-Span-84"><span class="msubsup"
+                                        id="MathJax-Span-85"><span
+                                            style="display: inline-block; position: relative; width: 1.128em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.112em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-86"
+                                                    style="font-family: MathJax_Math-italic;">P<span
+                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.136em;"></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; top: -3.833em; left: 0.665em;"><span
+                                                    class="mi" id="MathJax-Span-87"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-88"
+                                        style="font-family: MathJax_Main;">(</span><span class="msubsup"
+                                        id="MathJax-Span-89"><span
+                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-90"
+                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                    class="mn" id="MathJax-Span-91"
+                                                    style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-92"
+                                        style="font-family: MathJax_Main;">,</span><span class="msubsup"
+                                        id="MathJax-Span-93" style="padding-left: 0.202em;"><span
+                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-94"
+                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                    class="mn" id="MathJax-Span-95"
+                                                    style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-96"
+                                        style="font-family: MathJax_Main;">,</span><span class="mo"
+                                        id="MathJax-Span-97"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                        class="mo" id="MathJax-Span-98"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                        class="mo" id="MathJax-Span-99"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                        class="mo" id="MathJax-Span-100"
+                                        style="font-family: MathJax_Main; padding-left: 0.202em;">,</span><span
+                                        class="msubsup" id="MathJax-Span-101"
+                                        style="padding-left: 0.202em;"><span
+                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-102"
+                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                    class="mi" id="MathJax-Span-103"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-104"
+                                        style="font-family: MathJax_Main;">)</span><span class="mo"
+                                        id="MathJax-Span-105"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                        class="mfrac" id="MathJax-Span-106"
+                                        style="padding-left: 0.268em;"><span
+                                            style="display: inline-block; position: relative; width: 6.749em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1000.8em, 4.17em, -999.997em); top: -4.626em; left: 50%; margin-left: -0.46em;"><span
+                                                    class="mrow" id="MathJax-Span-107"><span class="mi"
+                                                        id="MathJax-Span-108"
+                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                        class="mo" id="MathJax-Span-109"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.046em, 1006.55em, 4.302em, -999.997em); top: -3.237em; left: 50%; margin-left: -3.304em;"><span
+                                                    class="mrow" id="MathJax-Span-110"><span
+                                                        class="msubsup" id="MathJax-Span-111"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-112"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                    class="mn" id="MathJax-Span-113"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-114"
+                                                        style="font-family: MathJax_Main;">!</span><span
+                                                        class="mo" id="MathJax-Span-115"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                        class="msubsup" id="MathJax-Span-116"
+                                                        style="padding-left: 0.202em;"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-117"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                    class="mn" id="MathJax-Span-118"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-119"
+                                                        style="font-family: MathJax_Main;">!</span><span
+                                                        class="mo" id="MathJax-Span-120"
+                                                        style="font-family: MathJax_Main;">⋅</span><span
+                                                        class="mo" id="MathJax-Span-121"
+                                                        style="font-family: MathJax_Main;">.</span><span
+                                                        class="mo" id="MathJax-Span-122"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                        class="mo" id="MathJax-Span-123"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                        class="mo" id="MathJax-Span-124"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                        class="msubsup" id="MathJax-Span-125"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-126"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                    class="mi" id="MathJax-Span-127"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-128"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(0.797em, 1006.75em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 6.749em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                    data-darkreader-inline-border-top=""></span><span
+                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span></span><span
+                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                            style="display: inline-block; overflow: hidden; vertical-align: -1.162em; border-left: 0px solid; width: 0px; height: 3.004em; --darkreader-inline-border-left: initial;"
+                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    </math></span>
+            </div>
+        </p>
+
+        <input class="form" type="text" v-model="incomingData_N_1"  placeholder="Введите n1">
+        <input class="form" type="text" v-model="incomingData_N_2"  placeholder="Введите n2">
+        <input class="form" type="text" v-model="incomingData_N_3"  placeholder="Введите n3">
+        <input class="form" type="text" v-model="incomingData_N_4"  placeholder="Введите n4">
+        <input class="form" type="text" v-model="incomingData_N_5"  placeholder="Введите n5">
+        <input class="form" type="text" v-model="incomingData_N_6"  placeholder="Введите n6">
+        <input class="form" type="text" v-model="incomingData_N_7"  placeholder="Введите n7">
+        <input class="form" type="text" v-model="incomingData_N_8"  placeholder="Введите n8">
+        <input class="form" type="text" v-model="incomingData_N_9"  placeholder="Введите n9">
+        <input class="form" type="text" v-model="incomingData_N_10" placeholder="Введите n10">
+
+        <button class="button mt-2" @click="Calculator">Вычислить</button>
+        <p class="mt-2">Результат: <span class="result">{{ result }}</span></p>
+    </div>
+
+    <div class="sidebar p-4" id="combination">
+        <a href="#close" class="close-btn">&times;</a>
+        <h4>Сочетания с повторениями</h4>
+        <p>
+            Пусть имеются предметы n различных видов предметов, и из них составляются наборы, содержащие k элементов. Такие выборки называются сочетаниями с повторением. Их число вычисляется по формуле:
+            <br><br>
+
+            <!--!--Огромный span с формулой-->
+            <div class="MathJax_Display" style="text-align: center;">
+                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-46"
+                        style="width: 15.678em; display: inline-block;"><span
+                            style="display: inline-block; position: relative; width: 12.437em; height: 0px; font-size: 126%;"><span
+                                style="position: absolute; clip: rect(0.532em, 1012.44em, 3.442em, -999.997em); top: -2.245em; left: 0em;"><span
+                                    class="mrow" id="MathJax-Span-47"><span class="msubsup" id="MathJax-Span-48"><span
+                                            style="display: inline-block; position: relative; width: 1.326em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(2.715em, 1000.86em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="munderover" id="MathJax-Span-49"><span
+                                                        style="display: inline-block; position: relative; width: 0.863em; height: 0px;"><span
+                                                            style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0.003em;"><span
+                                                                class="mi" id="MathJax-Span-50"
+                                                                style="font-family: MathJax_Math-italic;">C<span
+                                                                    style="display: inline-block; overflow: hidden; height: 1px; width: 0.069em;"></span></span><span
+                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                            style="position: absolute; clip: rect(3.244em, 1000.8em, 3.773em, -999.997em); top: -4.494em; left: 0.069em;"><span
+                                                                class="mo" id="MathJax-Span-51"><span
+                                                                    style="display: inline-block; position: relative; width: 0.797em; height: 0px;"><span
+                                                                        style="position: absolute; top: -3.965em; left: -0.063em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                        style="position: absolute; top: -3.965em; left: 0.466em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                        style="position: absolute; top: -3.965em; left: 0.136em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                        style="position: absolute; top: -3.965em; left: 0.268em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.759em; left: 0.863em;"><span
+                                                    class="mi" id="MathJax-Span-52"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.7em; left: 0.863em;"><span
+                                                    class="mi" id="MathJax-Span-53"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-54"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                        class="msubsup" id="MathJax-Span-55" style="padding-left: 0.268em;"><span
+                                            style="display: inline-block; position: relative; width: 3.046em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-56"
+                                                    style="font-family: MathJax_Math-italic;">C<span
+                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.069em;"></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.296em; left: 0.797em;"><span
+                                                    class="mi" id="MathJax-Span-57"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.31em, 1002.32em, 4.236em, -999.997em); top: -3.634em; left: 0.731em;"><span
+                                                    class="texatom" id="MathJax-Span-58"><span class="mrow"
+                                                        id="MathJax-Span-59"><span class="mi" id="MathJax-Span-60"
+                                                            style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                            class="mo" id="MathJax-Span-61"
+                                                            style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span
+                                                            class="mi" id="MathJax-Span-62"
+                                                            style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                            class="mo" id="MathJax-Span-63"
+                                                            style="font-size: 70.7%; font-family: MathJax_Main;">−</span><span
+                                                            class="mn" id="MathJax-Span-64"
+                                                            style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-65"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                        class="mfrac" id="MathJax-Span-66" style="padding-left: 0.268em;"><span
+                                            style="display: inline-block; position: relative; width: 5.162em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                style="position: absolute; clip: rect(3.046em, 1004.96em, 4.435em, -999.997em); top: -4.692em; left: 50%; margin-left: -2.51em;"><span
+                                                    class="mrow" id="MathJax-Span-67"><span class="mo"
+                                                        id="MathJax-Span-68"
+                                                        style="font-family: MathJax_Main;">(</span><span class="mi"
+                                                        id="MathJax-Span-69"
+                                                        style="font-family: MathJax_Math-italic;">k</span><span
+                                                        class="mo" id="MathJax-Span-70"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">+</span><span
+                                                        class="mi" id="MathJax-Span-71"
+                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">n</span><span
+                                                        class="mo" id="MathJax-Span-72"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                        class="mn" id="MathJax-Span-73"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">1</span><span
+                                                        class="mo" id="MathJax-Span-74"
+                                                        style="font-family: MathJax_Main;">)</span><span class="mo"
+                                                        id="MathJax-Span-75"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.046em, 1004.76em, 4.435em, -999.997em); top: -3.237em; left: 50%; margin-left: -2.378em;"><span
+                                                    class="mrow" id="MathJax-Span-76"><span class="mo"
+                                                        id="MathJax-Span-77"
+                                                        style="font-family: MathJax_Main;">(</span><span class="mi"
+                                                        id="MathJax-Span-78"
+                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                        class="mo" id="MathJax-Span-79"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                        class="mn" id="MathJax-Span-80"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">1</span><span
+                                                        class="mo" id="MathJax-Span-81"
+                                                        style="font-family: MathJax_Main;">)</span><span class="mo"
+                                                        id="MathJax-Span-82"
+                                                        style="font-family: MathJax_Main;">!</span><span class="mo"
+                                                        id="MathJax-Span-83"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                        class="mi" id="MathJax-Span-84"
+                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                        class="mo" id="MathJax-Span-85"
+                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(0.797em, 1005.16em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 5.162em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                    data-darkreader-inline-border-top=""></span><span
+                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span></span><span
+                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                            style="display: inline-block; overflow: hidden; vertical-align: -1.329em; border-left: 0px solid; width: 0px; height: 3.337em; --darkreader-inline-border-left: initial;"
+                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    </math></span>
+            </div>
+        </p>
+
+        <input class="form" type="text" v-model="incomingData_N" placeholder="Введите n">
+        <input class="form" type="text" v-model="incomingData_K" placeholder="Введите k">
+        
+        <button class="button mt-2" @click="Calculator">Вычислить</button>
+        <p class="mt-2">Результат: <span class="result">{{ result }}</span></p>
+    </div>
+
+    <div class="sidebar p-4" id="permutations">
+        <a href="#close" class="close-btn">&times;</a>
+        <h4>Размещения с повторениями</h4>
+        <p>
+            Число размещений с повторениями из n элементов по k найдем из следующих соображений. Каждый элемент может быть выбран n способами, а общее число способов формирования выборки объема k подсчитывается на основании правила умножения:
+
+            <!--!--Огромный span с формулой-->
+            <div class="MathJax_Display" style="text-align: center;">
+                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-22"
+                        style="width: 80px; display: inline-block;"><span
+                            style="display: inline-block; position: relative; width: 9.659em; height: 0px; font-size: 126%;"><span
+                                style="position: absolute; clip: rect(0.797em, 1009.59em, 2.715em, -999.997em); top: -2.245em; left: 0em;"><span
+                                    class="mrow" id="MathJax-Span-23"><span class="msubsup" id="MathJax-Span-24"><span
+                                            style="display: inline-block; position: relative; width: 1.26em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(2.715em, 1000.8em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="munderover" id="MathJax-Span-25"><span
+                                                        style="display: inline-block; position: relative; width: 0.797em; height: 0px;"><span
+                                                            style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0.003em;"><span
+                                                                class="mi" id="MathJax-Span-26"
+                                                                style="font-family: MathJax_Math-italic;">A</span><span
+                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                            style="position: absolute; clip: rect(3.244em, 1000.8em, 3.773em, -999.997em); top: -4.494em; left: 0em;"><span
+                                                                class="mo" id="MathJax-Span-27"><span
+                                                                    style="display: inline-block; position: relative; width: 0.797em; height: 0px;"><span
+                                                                        style="position: absolute; top: -3.965em; left: -0.063em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                        style="position: absolute; top: -3.965em; left: 0.466em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                        style="position: absolute; top: -3.965em; left: 0.136em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                        style="position: absolute; top: -3.965em; left: 0.268em;"><span
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.759em; left: 0.797em;"><span
+                                                    class="mi" id="MathJax-Span-28"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.7em; left: 0.797em;"><span
+                                                    class="mi" id="MathJax-Span-29"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                        class="mo" id="MathJax-Span-30"
+                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span>
+                                    <span class="msubsup" id="MathJax-Span-41" style="padding-left: 0.268em;"><span
+                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                    class="mi" id="MathJax-Span-42"
+                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                style="position: absolute; top: -4.362em; left: 0.599em;"><span
+                                                    class="mi" id="MathJax-Span-43"
+                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span></span><span
+                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                            style="display: inline-block; overflow: hidden; vertical-align: -0.413em; border-left: 0px solid; width: 0px; height: 2.087em; --darkreader-inline-border-left: initial;"
+                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    </math></span>
+            </div>
+        </p>
+
+        <input class="form" type="text" v-model="incomingData_N" placeholder="Введите n">
+        <input class="form" type="text" v-model="incomingData_K" placeholder="Введите k">
+
+        <button class="button mt-2" @click="Calculator">Вычислить</button>
+        <p class="mt-2">Результат: <span class="result">{{ result }}</span></p>
+    </div>
+
+    <div class="container pt-4">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Перестановки</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Определение факториала</li>
+                        <li>и количества перестановок</li>
+                        <li>по формуле</li>
+                        <li>
+                            <!--!--Огромный span с формулой-->
+                            <nobr aria-hidden="true"><span class="math" id="MathJax-Span-4"
+                                    style="width: 17.331em; display: inline-block;"><span
+                                        style="display: inline-block; position: relative; width: 13.76em; height: 0px; font-size: 126%;"><span
+                                            style="position: absolute; clip: rect(1.326em, 1013.76em, 2.715em, -999.997em); top: -2.245em; left: 0em;"><span
+                                                class="mrow" id="MathJax-Span-5"><span class="msubsup"
+                                                    id="MathJax-Span-6"><span
+                                                        style="display: inline-block; position: relative; width: 1.128em; height: 0px;"><span
+                                                            style="position: absolute; clip: rect(3.112em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                class="mi" id="MathJax-Span-7"
+                                                                style="font-family: MathJax_Math-italic;">P<span
+                                                                    style="display: inline-block; overflow: hidden; height: 1px; width: 0.136em;"></span></span><span
+                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                            style="position: absolute; top: -3.833em; left: 0.665em;"><span
+                                                                class="mi" id="MathJax-Span-8"
+                                                                style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                    class="mo" id="MathJax-Span-9"
+                                                    style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                                    class="mi" id="MathJax-Span-10"
+                                                    style="font-family: MathJax_Math-italic; padding-left: 0.268em;">n</span><span
+                                                    class="mo" id="MathJax-Span-11"
+                                                    style="font-family: MathJax_Main;">!</span><span class="mo"
+                                                    id="MathJax-Span-12"
+                                                    style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                                    class="mn" id="MathJax-Span-13"
+                                                    style="font-family: MathJax_Main; padding-left: 0.268em;">1</span><span
+                                                    class="mo" id="MathJax-Span-14"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                    class="mn" id="MathJax-Span-15"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">2</span><span
+                                                    class="mo" id="MathJax-Span-16"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                    class="mn" id="MathJax-Span-17"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">3</span><span
+                                                    class="mo" id="MathJax-Span-18"
+                                                    style="font-family: MathJax_Main;">⋅</span><span class="mo"
+                                                    id="MathJax-Span-19"
+                                                    style="font-family: MathJax_Main;">.</span><span class="mo"
+                                                    id="MathJax-Span-20"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                    class="mo" id="MathJax-Span-21"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                    class="mo" id="MathJax-Span-22"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                    class="mo" id="MathJax-Span-23"
+                                                    style="font-family: MathJax_Main;">(</span><span class="mi"
+                                                    id="MathJax-Span-24"
+                                                    style="font-family: MathJax_Math-italic;">n</span><span class="mo"
+                                                    id="MathJax-Span-25"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                    class="mn" id="MathJax-Span-26"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">1</span><span
+                                                    class="mo" id="MathJax-Span-27"
+                                                    style="font-family: MathJax_Main;">)</span><span class="mo"
+                                                    id="MathJax-Span-28"
+                                                    style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                    class="mi" id="MathJax-Span-29"
+                                                    style="font-family: MathJax_Math-italic; padding-left: 0.202em;">n</span></span><span
+                                                style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                                        style="display: inline-block; overflow: hidden; vertical-align: -0.413em; border-left: 0px solid; width: 0px; height: 1.421em; --darkreader-inline-border-left: initial;"
+                                        data-darkreader-inline-border-left=""></span></span></nobr>
+                        </li>
+
+                    </ul>
+                    <a href="#placementNo" class="btn btn-lg btn-block btn-primary">Вычислить</a>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Совмещения</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Определение количества</li>
+                        <li>сочетаний по формуле</li>
+                        <li>
+                            <!--!--Огромный span с формулой-->
+                            <div class="MathJax_Display" style="text-align: center;">
+                                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-19"
+                                        style="width: 10.188em; display: inline-block;"><span
+                                            style="display: inline-block; position: relative; width: 8.072em; height: 0px; font-size: 126%;"><span
+                                                style="position: absolute; clip: rect(0.665em, 1008.01em, 3.442em, -999.997em); top: -2.245em; left: 0em;"><span
+                                                    class="mrow" id="MathJax-Span-20"><span class="msubsup"
+                                                        id="MathJax-Span-21"><span
+                                                            style="display: inline-block; position: relative; width: 1.26em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-22"
+                                                                    style="font-family: MathJax_Math-italic;">C<span
+                                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.069em;"></span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.296em; left: 0.797em;"><span
+                                                                    class="mi" id="MathJax-Span-23"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.833em; left: 0.731em;"><span
+                                                                    class="mi" id="MathJax-Span-24"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-25"
+                                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                                        class="mfrac" id="MathJax-Span-26"
+                                                        style="padding-left: 0.268em;"><span
+                                                            style="display: inline-block; position: relative; width: 4.964em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1000.8em, 4.17em, -999.997em); top: -4.626em; left: 50%; margin-left: -0.46em;"><span
+                                                                    class="mrow" id="MathJax-Span-27"><span class="mi"
+                                                                        id="MathJax-Span-28"
+                                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                                        class="mo" id="MathJax-Span-29"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.046em, 1004.76em, 4.435em, -999.997em); top: -3.237em; left: 50%; margin-left: -2.444em;"><span
+                                                                    class="mrow" id="MathJax-Span-30"><span class="mo"
+                                                                        id="MathJax-Span-31"
+                                                                        style="font-family: MathJax_Main;">(</span><span
+                                                                        class="mi" id="MathJax-Span-32"
+                                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                                        class="mo" id="MathJax-Span-33"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                                        class="mi" id="MathJax-Span-34"
+                                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                                        class="mo" id="MathJax-Span-35"
+                                                                        style="font-family: MathJax_Main;">)</span><span
+                                                                        class="mo" id="MathJax-Span-36"
+                                                                        style="font-family: MathJax_Main;">!</span><span
+                                                                        class="mo" id="MathJax-Span-37"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                                        class="mi" id="MathJax-Span-38"
+                                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                                        class="mo" id="MathJax-Span-39"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(0.797em, 1004.96em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 4.964em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                                    data-darkreader-inline-border-top=""></span><span
+                                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                                            style="display: inline-block; overflow: hidden; vertical-align: -1.329em; border-left: 0px solid; width: 0px; height: 3.171em; --darkreader-inline-border-left: initial;"
+                                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    </math></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#combinationNo" class="btn btn-lg btn-block btn-primary">Вычислить</a>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Размещения</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Определение количества</li>
+                        <li>размещений по формуле</li>
+                        <li>
+                            <!--!--Огромный span с формулой-->
+                            <div class="MathJax_Display" style="text-align: center;">
+                                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-13"
+                                        style="width: 100px; display: inline-block;"><span
+                                            style="display: inline-block; position: relative; width: 18.72em; height: 0px; font-size: 126%;"><span
+                                                style="position: absolute; clip: rect(0.665em, 1018.65em, 3.442em, -999.997em); top: -2.245em; left: 0em;"><span
+                                                    class="mrow" id="MathJax-Span-14"><span class="msubsup"
+                                                        id="MathJax-Span-15"><span
+                                                            style="display: inline-block; position: relative; width: 1.26em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-16"
+                                                                    style="font-family: MathJax_Math-italic;">A</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.296em; left: 0.731em;"><span
+                                                                    class="mi" id="MathJax-Span-17"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.833em; left: 0.731em;"><span
+                                                                    class="mi" id="MathJax-Span-18"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mfrac" id="MathJax-Span-20"
+                                                        style="padding-left: 0.268em;">
+                                                        <span
+                                                            style="display: inline-block; position: relative; width: 3.509em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1000.8em, 4.17em, -999.997em); top: -4.626em; left: 50%; margin-left: -0.46em;"><span
+                                                                    class="mrow" id="MathJax-Span-21">
+                                                                    <span class="mi" id="MathJax-Span-22"
+                                                                        style="font-family: MathJax_Math-italic;">n</span>
+                                                                    <span class="mo" id="MathJax-Span-23"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.046em, 1003.31em, 4.435em, -999.997em); top: -3.237em; left: 50%; margin-left: -1.65em;"><span
+                                                                    class="mrow" id="MathJax-Span-24"><span class="mo"
+                                                                        id="MathJax-Span-25"
+                                                                        style="font-family: MathJax_Main;">(</span><span
+                                                                        class="mi" id="MathJax-Span-26"
+                                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                                        class="mo" id="MathJax-Span-27"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                                        class="mi" id="MathJax-Span-28"
+                                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                                        class="mo" id="MathJax-Span-29"
+                                                                        style="font-family: MathJax_Main;">)</span><span
+                                                                        class="mo" id="MathJax-Span-30"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(0.797em, 1003.51em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 3.509em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                                    data-darkreader-inline-border-top=""></span><span
+                                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span>
+                                                </span><span
+                                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                                            style="display: inline-block; overflow: hidden; vertical-align: -1.329em; border-left: 0px solid; width: 0px; height: 3.171em; --darkreader-inline-border-left: initial;"
+                                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    </math></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#permutationsNo" class="btn btn-lg btn-block btn-primary">Вычислить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-4">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Перестановки с повторениями</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Определение количества</li>
+                        <li>перестановок с повторениями</li>
+                        <li>по формуле</li>
+                        <li>
+                            <!--!--Огромный span с формулой-->
+                            <div class="MathJax_Display" style="text-align: center;">
+                                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-83"
+                                        style="width: 20.837em; display: inline-block;"><span
+                                            style="display: inline-block; position: relative; width: 16.538em; height: 0px; font-size: 126%;"><span
+                                                style="position: absolute; clip: rect(0.665em, 1016.47em, 3.31em, -999.997em); top: -2.245em; left: 0em;"><span
+                                                    class="mrow" id="MathJax-Span-84"><span class="msubsup"
+                                                        id="MathJax-Span-85"><span
+                                                            style="display: inline-block; position: relative; width: 1.128em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.112em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-86"
+                                                                    style="font-family: MathJax_Math-italic;">P<span
+                                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.136em;"></span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.665em;"><span
+                                                                    class="mi" id="MathJax-Span-87"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-88"
+                                                        style="font-family: MathJax_Main;">(</span><span class="msubsup"
+                                                        id="MathJax-Span-89"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-90"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                    class="mn" id="MathJax-Span-91"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-92"
+                                                        style="font-family: MathJax_Main;">,</span><span class="msubsup"
+                                                        id="MathJax-Span-93" style="padding-left: 0.202em;"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-94"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                    class="mn" id="MathJax-Span-95"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-96"
+                                                        style="font-family: MathJax_Main;">,</span><span class="mo"
+                                                        id="MathJax-Span-97"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                        class="mo" id="MathJax-Span-98"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                        class="mo" id="MathJax-Span-99"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                        class="mo" id="MathJax-Span-100"
+                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">,</span><span
+                                                        class="msubsup" id="MathJax-Span-101"
+                                                        style="padding-left: 0.202em;"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-102"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                    class="mi" id="MathJax-Span-103"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-104"
+                                                        style="font-family: MathJax_Main;">)</span><span class="mo"
+                                                        id="MathJax-Span-105"
+                                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                                        class="mfrac" id="MathJax-Span-106"
+                                                        style="padding-left: 0.268em;"><span
+                                                            style="display: inline-block; position: relative; width: 6.749em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1000.8em, 4.17em, -999.997em); top: -4.626em; left: 50%; margin-left: -0.46em;"><span
+                                                                    class="mrow" id="MathJax-Span-107"><span class="mi"
+                                                                        id="MathJax-Span-108"
+                                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                                        class="mo" id="MathJax-Span-109"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.046em, 1006.55em, 4.302em, -999.997em); top: -3.237em; left: 50%; margin-left: -3.304em;"><span
+                                                                    class="mrow" id="MathJax-Span-110"><span
+                                                                        class="msubsup" id="MathJax-Span-111"><span
+                                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                                    class="mi" id="MathJax-Span-112"
+                                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                                    class="mn" id="MathJax-Span-113"
+                                                                                    style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span
+                                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                        class="mo" id="MathJax-Span-114"
+                                                                        style="font-family: MathJax_Main;">!</span><span
+                                                                        class="mo" id="MathJax-Span-115"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                                        class="msubsup" id="MathJax-Span-116"
+                                                                        style="padding-left: 0.202em;"><span
+                                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                                    class="mi" id="MathJax-Span-117"
+                                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                                    class="mn" id="MathJax-Span-118"
+                                                                                    style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span
+                                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                        class="mo" id="MathJax-Span-119"
+                                                                        style="font-family: MathJax_Main;">!</span><span
+                                                                        class="mo" id="MathJax-Span-120"
+                                                                        style="font-family: MathJax_Main;">⋅</span><span
+                                                                        class="mo" id="MathJax-Span-121"
+                                                                        style="font-family: MathJax_Main;">.</span><span
+                                                                        class="mo" id="MathJax-Span-122"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                                        class="mo" id="MathJax-Span-123"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">.</span><span
+                                                                        class="mo" id="MathJax-Span-124"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                                        class="msubsup" id="MathJax-Span-125"><span
+                                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                                    class="mi" id="MathJax-Span-126"
+                                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                style="position: absolute; top: -3.833em; left: 0.599em;"><span
+                                                                                    class="mi" id="MathJax-Span-127"
+                                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                        class="mo" id="MathJax-Span-128"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(0.797em, 1006.75em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 6.749em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                                    data-darkreader-inline-border-top=""></span><span
+                                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                                            style="display: inline-block; overflow: hidden; vertical-align: -1.162em; border-left: 0px solid; width: 0px; height: 3.004em; --darkreader-inline-border-left: initial;"
+                                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    </math></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#placement" class="btn btn-lg btn-block btn-primary">Вычислить</a>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Совмещения с повторениями</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Определение количества</li>
+                        <li>сочетаний с повторениями</li>
+                        <li>по формуле</li>
+                        <li>
+                            <!--!--Огромный span с формулой-->
+                            <div class="MathJax_Display" style="text-align: center;">
+                                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-46"
+                                        style="width: 15.678em; display: inline-block;"><span
+                                            style="display: inline-block; position: relative; width: 12.437em; height: 0px; font-size: 126%;"><span
+                                                style="position: absolute; clip: rect(0.532em, 1012.44em, 3.442em, -999.997em); top: -2.245em; left: 0em;"><span
+                                                    class="mrow" id="MathJax-Span-47"><span class="msubsup"
+                                                        id="MathJax-Span-48"><span
+                                                            style="display: inline-block; position: relative; width: 1.326em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(2.715em, 1000.86em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="munderover" id="MathJax-Span-49"><span
+                                                                        style="display: inline-block; position: relative; width: 0.863em; height: 0px;"><span
+                                                                            style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0.003em;"><span
+                                                                                class="mi" id="MathJax-Span-50"
+                                                                                style="font-family: MathJax_Math-italic;">C<span
+                                                                                    style="display: inline-block; overflow: hidden; height: 1px; width: 0.069em;"></span></span><span
+                                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                            style="position: absolute; clip: rect(3.244em, 1000.8em, 3.773em, -999.997em); top: -4.494em; left: 0.069em;"><span
+                                                                                class="mo" id="MathJax-Span-51"><span
+                                                                                    style="display: inline-block; position: relative; width: 0.797em; height: 0px;"><span
+                                                                                        style="position: absolute; top: -3.965em; left: -0.063em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                        style="position: absolute; top: -3.965em; left: 0.466em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                        style="position: absolute; top: -3.965em; left: 0.136em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                        style="position: absolute; top: -3.965em; left: 0.268em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.759em; left: 0.863em;"><span
+                                                                    class="mi" id="MathJax-Span-52"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.7em; left: 0.863em;"><span
+                                                                    class="mi" id="MathJax-Span-53"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-54"
+                                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                                        class="msubsup" id="MathJax-Span-55"
+                                                        style="padding-left: 0.268em;"><span
+                                                            style="display: inline-block; position: relative; width: 3.046em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-56"
+                                                                    style="font-family: MathJax_Math-italic;">C<span
+                                                                        style="display: inline-block; overflow: hidden; height: 1px; width: 0.069em;"></span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.296em; left: 0.797em;"><span
+                                                                    class="mi" id="MathJax-Span-57"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.31em, 1002.32em, 4.236em, -999.997em); top: -3.634em; left: 0.731em;"><span
+                                                                    class="texatom" id="MathJax-Span-58"><span
+                                                                        class="mrow" id="MathJax-Span-59"><span
+                                                                            class="mi" id="MathJax-Span-60"
+                                                                            style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                            class="mo" id="MathJax-Span-61"
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span
+                                                                            class="mi" id="MathJax-Span-62"
+                                                                            style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                            class="mo" id="MathJax-Span-63"
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">−</span><span
+                                                                            class="mn" id="MathJax-Span-64"
+                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-65"
+                                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span><span
+                                                        class="mfrac" id="MathJax-Span-66"
+                                                        style="padding-left: 0.268em;"><span
+                                                            style="display: inline-block; position: relative; width: 5.162em; height: 0px; margin-right: 0.136em; margin-left: 0.136em;"><span
+                                                                style="position: absolute; clip: rect(3.046em, 1004.96em, 4.435em, -999.997em); top: -4.692em; left: 50%; margin-left: -2.51em;"><span
+                                                                    class="mrow" id="MathJax-Span-67"><span class="mo"
+                                                                        id="MathJax-Span-68"
+                                                                        style="font-family: MathJax_Main;">(</span><span
+                                                                        class="mi" id="MathJax-Span-69"
+                                                                        style="font-family: MathJax_Math-italic;">k</span><span
+                                                                        class="mo" id="MathJax-Span-70"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">+</span><span
+                                                                        class="mi" id="MathJax-Span-71"
+                                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">n</span><span
+                                                                        class="mo" id="MathJax-Span-72"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                                        class="mn" id="MathJax-Span-73"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">1</span><span
+                                                                        class="mo" id="MathJax-Span-74"
+                                                                        style="font-family: MathJax_Main;">)</span><span
+                                                                        class="mo" id="MathJax-Span-75"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.046em, 1004.76em, 4.435em, -999.997em); top: -3.237em; left: 50%; margin-left: -2.378em;"><span
+                                                                    class="mrow" id="MathJax-Span-76"><span class="mo"
+                                                                        id="MathJax-Span-77"
+                                                                        style="font-family: MathJax_Main;">(</span><span
+                                                                        class="mi" id="MathJax-Span-78"
+                                                                        style="font-family: MathJax_Math-italic;">n</span><span
+                                                                        class="mo" id="MathJax-Span-79"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">−</span><span
+                                                                        class="mn" id="MathJax-Span-80"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">1</span><span
+                                                                        class="mo" id="MathJax-Span-81"
+                                                                        style="font-family: MathJax_Main;">)</span><span
+                                                                        class="mo" id="MathJax-Span-82"
+                                                                        style="font-family: MathJax_Main;">!</span><span
+                                                                        class="mo" id="MathJax-Span-83"
+                                                                        style="font-family: MathJax_Main; padding-left: 0.202em;">⋅</span><span
+                                                                        class="mi" id="MathJax-Span-84"
+                                                                        style="font-family: MathJax_Math-italic; padding-left: 0.202em;">k</span><span
+                                                                        class="mo" id="MathJax-Span-85"
+                                                                        style="font-family: MathJax_Main;">!</span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(0.797em, 1005.16em, 1.26em, -999.997em); top: -1.253em; left: 0em;"><span
+                                                                    style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 5.162em; height: 0px; --darkreader-inline-border-top: initial;"
+                                                                    data-darkreader-inline-border-top=""></span><span
+                                                                    style="display: inline-block; width: 0px; height: 1.062em;"></span></span></span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                                            style="display: inline-block; overflow: hidden; vertical-align: -1.329em; border-left: 0px solid; width: 0px; height: 3.337em; --darkreader-inline-border-left: initial;"
+                                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    </math></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#combination" class="btn btn-lg btn-block btn-primary">Вычислить</a>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Размещения с повторениями</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Определение количества</li>
+                        <li>размещений с повторениями</li>
+                        <li>по формуле</li>
+                        <li>
+                            <!--!--Огромный span с формулой-->
+                            <div class="MathJax_Display" style="text-align: center;">
+                                <nobr aria-hidden="true"><span class="math" id="MathJax-Span-22"
+                                        style="width: 80px; display: inline-block;"><span
+                                            style="display: inline-block; position: relative; width: 9.659em; height: 0px; font-size: 126%;"><span
+                                                style="position: absolute; clip: rect(0.797em, 1009.59em, 2.715em, -999.997em); top: -2.245em; left: 0em;"><span
+                                                    class="mrow" id="MathJax-Span-23"><span class="msubsup"
+                                                        id="MathJax-Span-24"><span
+                                                            style="display: inline-block; position: relative; width: 1.26em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(2.715em, 1000.8em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="munderover" id="MathJax-Span-25"><span
+                                                                        style="display: inline-block; position: relative; width: 0.797em; height: 0px;"><span
+                                                                            style="position: absolute; clip: rect(3.046em, 1000.73em, 4.17em, -999.997em); top: -3.965em; left: 0.003em;"><span
+                                                                                class="mi" id="MathJax-Span-26"
+                                                                                style="font-family: MathJax_Math-italic;">A</span><span
+                                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                            style="position: absolute; clip: rect(3.244em, 1000.8em, 3.773em, -999.997em); top: -4.494em; left: 0em;"><span
+                                                                                class="mo" id="MathJax-Span-27"><span
+                                                                                    style="display: inline-block; position: relative; width: 0.797em; height: 0px;"><span
+                                                                                        style="position: absolute; top: -3.965em; left: -0.063em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                        style="position: absolute; top: -3.965em; left: 0.466em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                        style="position: absolute; top: -3.965em; left: 0.136em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                                        style="position: absolute; top: -3.965em; left: 0.268em;"><span
+                                                                                            style="font-size: 70.7%; font-family: MathJax_Main;">¯</span><span
+                                                                                            style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                                style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.47em, 4.17em, -999.997em); top: -4.759em; left: 0.797em;"><span
+                                                                    class="mi" id="MathJax-Span-28"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; clip: rect(3.442em, 1000.53em, 4.17em, -999.997em); top: -3.7em; left: 0.797em;"><span
+                                                                    class="mi" id="MathJax-Span-29"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span><span
+                                                        class="mo" id="MathJax-Span-30"
+                                                        style="font-family: MathJax_Main; padding-left: 0.268em;">=</span>
+                                                    <span class="msubsup" id="MathJax-Span-41"
+                                                        style="padding-left: 0.268em;"><span
+                                                            style="display: inline-block; position: relative; width: 1.062em; height: 0px;"><span
+                                                                style="position: absolute; clip: rect(3.31em, 1000.6em, 4.17em, -999.997em); top: -3.965em; left: 0em;"><span
+                                                                    class="mi" id="MathJax-Span-42"
+                                                                    style="font-family: MathJax_Math-italic;">n</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span><span
+                                                                style="position: absolute; top: -4.362em; left: 0.599em;"><span
+                                                                    class="mi" id="MathJax-Span-43"
+                                                                    style="font-size: 70.7%; font-family: MathJax_Math-italic;">k</span><span
+                                                                    style="display: inline-block; width: 0px; height: 3.972em;"></span></span></span></span></span><span
+                                                    style="display: inline-block; width: 0px; height: 2.252em;"></span></span></span><span
+                                            style="display: inline-block; overflow: hidden; vertical-align: -0.413em; border-left: 0px solid; width: 0px; height: 2.087em; --darkreader-inline-border-left: initial;"
+                                            data-darkreader-inline-border-left=""></span></span></nobr><span
+                                    class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    </math></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#permutations" class="btn btn-lg btn-block btn-primary">Вычислить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/libs.min.js"></script>
+    <script src="node_modules\vue\dist\vue.min.js"></script>
+    <script src="./render.js"></script>
+
+    <script src="js/Logic/factorial.js"></script>
+    <script src="js/Logic/combinationNo.js"></script>
+    <script src="js/Logic/permutationsNo.js"></script>
+    <script src="js/Logic/placement.js"></script>
+    <script src="js/Logic/combination.js"></script>
+    <script src="js/Logic/permutations.js"></script>
+
+    <script src="js/Visual/placementNo_Vue.js"></script>
+    <script src="js/Visual/combinationNo_Vue.js"></script>
+    <script src="js/Visual/permutationsNo_Vue.js"></script>
+    <script src="js/Visual/placement_Vue.js"></script>
+    <script src="js/Visual/combination_Vue.js"></script>
+    <script src="js/Visual/permutations_Vue.js"></script>
+
+</body>
+
+</html>

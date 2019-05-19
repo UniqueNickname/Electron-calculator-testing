@@ -1,0 +1,29 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/UniqueNickname/Calculator.js-Electron.js-.git"
+  },
+  "author": "Kochura Ivan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UniqueNickname/Calculator.js-Electron.js-/issues"
+  },
+  "homepage": "https://github.com/UniqueNickname/Calculator.js-Electron.js-#readme",
+  "dependencies": {
+    "electron": "^5.0.1",
+    "electron-builder": "^20.39.0",
+    "electron-packager": "^13.1.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}

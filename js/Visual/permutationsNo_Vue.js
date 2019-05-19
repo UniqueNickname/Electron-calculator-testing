@@ -17,13 +17,13 @@ permutationsNo = new Vue({
                         let res = calc_permutationsNo(n, k);
                         this.result = res;
                     } else {
-                        this.result = "n должен быть больше или равен k"
+                        this.result = "n должен быть больше или равен k";
                     }
                 } else {
-                    this.result = "введите целые числа"
+                    this.result = "введите целые числа";
                 }
             } else {
-                this.result = "введите чесла больше 0"
+                this.result = "введите чесла больше 0";
             }
         }
     },

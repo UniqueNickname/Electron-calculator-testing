@@ -10,7 +10,7 @@ permutations = new Vue({
         Calculator: function() {
             const n = this.incomingData_N;
             const k = this.incomingData_K;
-            ////console.log(n + ":" + k);
+
             if (n >= 0 && k >= 0) {
                 if ((n - Math.floor(n)) == 0 &&
                         (k - Math.floor(k)) == 0) {

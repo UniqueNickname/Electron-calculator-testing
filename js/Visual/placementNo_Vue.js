@@ -10,8 +10,7 @@ placementNo = new Vue({
             const n = this.incomingData;
             if (n >= 0 ) {
                 if ((n - Math.floor(n)) == 0) {
-                    let res = factorial(n);
-                    this.result = res;
+                    this.result = factorial(n);
                 } else {
                     this.result = "введите целое число"
                 }

@@ -1,4 +1,4 @@
-combination = new Vue({
+placement = new Vue({
     el: '#placement',
     data: {
         incomingData_N_1:  '',

@@ -1,7 +1,7 @@
 const factorial = require('../Logic/factorial');
 
 function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
-    console.log("И оно запустилось");
+    ////console.log("И оно запустилось");
     
     let ready = true;
     let ns    = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10];
@@ -9,7 +9,7 @@ function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
     for(let i = 0; i < ns.length; i++) {
         if(!(ns[i] >= 0)) {
             ready = false;
-            return "введите чесла больше 0";
+            return "введите числа больше 0";
         }
     }
 
@@ -26,7 +26,6 @@ function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
         } else {
             ns[i] = 0
         }
-        ////console.log("ns[" + i + "]   = " + ns[i]);
     }
 
     if(ready) {
@@ -51,10 +50,10 @@ function calc_placement (n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
         const f_n9  = factorial(n9);
         const f_n10 = factorial(n10);
     
-        const den = f_n1 * f_n2 * f_n3 * f_n4 * f_n5 * f_n6 * f_n7 * f_n8 * f_n9 * f_n10;
-        ////console.log("den   = " + den);
+        const mult = f_n1 * f_n2 * f_n3 * f_n4 * f_n5 * f_n6 * f_n7 * f_n8 * f_n9 * f_n10;
+        ////console.log("mult   = " + mult);
     
-        return f_sum / den;
+        return f_sum / mult;
     }
 }
 

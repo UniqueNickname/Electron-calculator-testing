@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "start": "electron ."
   },
   "repository": {
@@ -22,5 +22,8 @@
     "electron-builder": "^20.39.0",
     "electron-packager": "^13.1.1",
     "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }

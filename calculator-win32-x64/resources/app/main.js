@@ -18,7 +18,7 @@ function createWindow(){                                //!создание ок
         slashes: true
     }));
 
-    win.webContents.openDevTools();                     //!среда разработки
+    //win.webContents.openDevTools();                     //!среда разработки
 
     win.on('closed', () => {
         win = null;
